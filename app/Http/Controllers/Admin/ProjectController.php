@@ -105,13 +105,13 @@ class ProjectController extends Controller
     public function update(UpdateProjectRequest $request, Project $project)
     {
         $data = $request->validated();
+        $project->update($data);        
 
         if( isset($data['cover_image']) ) {   
             $img_path = Storage::disk('public')->put('uploads', $data['cover_image']);
-            $data->cover_image = $img_path;
+            $project->cover_image = $img_path;
         }
 
-        $project->update($data);        
         $project->slug = Str::slug($project->title);
         $project->save();
 
