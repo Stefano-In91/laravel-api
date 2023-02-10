@@ -33,7 +33,7 @@ class ProjectController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create() 
     {        
         $types = Type::all();
         $technologies = Technology::all();
@@ -105,7 +105,7 @@ class ProjectController extends Controller
     public function update(UpdateProjectRequest $request, Project $project)
     {
         $data = $request->validated();
-        $project->update($data);        
+        $project->update($data);         
 
         if( isset($data['cover_image']) ) {   
             $img_path = Storage::disk('public')->put('uploads', $data['cover_image']);

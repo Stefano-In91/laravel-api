@@ -7,7 +7,7 @@ use App\Models\Technology;
 use App\Http\Requests\StoreTechnologyRequest;
 use App\Http\Requests\UpdateTechnologyRequest;
 
-use Illuminate\Support\Str;
+use Illuminate\Support\Str; 
 
 
 class TechnologyController extends Controller

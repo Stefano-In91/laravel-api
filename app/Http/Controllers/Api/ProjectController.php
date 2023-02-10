@@ -18,14 +18,12 @@ class ProjectController extends Controller
     public function show($slug)
     {
         try {
-            $post = Project::where('slug', $slug)->with('type', 'technologies')->firstOrFail();
-            return $post;
+            $project = Project::where('slug', $slug)->with('type', 'technologies')->firstOrFail();
+            return $project;
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             return response([
-                'error' => '404 Post not found'
+                'error' => '404 Project not found'
             ], 404);
         }
-
-        return $post;
     }
 }
